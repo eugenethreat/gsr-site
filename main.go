@@ -110,6 +110,10 @@ func artist(c *gin.Context) {
 	}
 }
 
+func homepage_redirect(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, "/home/")
+}
+
 func main() {
 	router := gin.Default()
 	// load html
@@ -117,6 +121,7 @@ func main() {
 	// load static
 	router.Static("/assets", "./assets")
 	// routes
+	router.GET("/", homepage_redirect)
 	router.GET("/home/", new_home)
 	router.GET("/artists/", all_artists)
 	router.GET("/artists/:id/", artist)
