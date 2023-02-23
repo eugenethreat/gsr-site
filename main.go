@@ -11,14 +11,8 @@ func new_home(c *gin.Context) {
 
 	// generate a list of works
 	// https://www.allhandsontech.com/programming/golang/how-to-use-sqlite-with-go/
-	goblinrock2 := Work{"Goblin Rock II", "the willard building", "2022", "https://f4.bcbits.com/img/a1430038869_16.jpg"}
-	gromulet := Work{"Destiny's Gromulet", "mango safari", "2022", "https://f4.bcbits.com/img/a3203506842_16.jpg"}
-	fuckaround := Work{"fuck around and find out", "H2OhNo!", "2022", "https://f4.bcbits.com/img/a2613250794_16.jpg"}
 
-	works := []Work{goblinrock2, gromulet}
-
-	// works = append(works, Work{"LEG 3", "LEG", "2022", ""})
-	works = append(works, fuckaround)
+	works := get_works()
 
 	c.HTML(http.StatusOK, "base.html", gin.H{
 		"work_test": works,
@@ -46,9 +40,45 @@ func get_artists() []Artist {
 	twb_works := []Work{goblinrock2, years99, poppy}
 	twb_band := Artist{2, "the willard building", "/assets/artists/twb artist.jpg", twb_works, "it is unclear if the willard building is a band or a building but somehow eugene, ryan, grant, derek, and andrew are involved."}
 
-	artists = append(artists, leg_band, twb_band)
+	// mango
+	gromulet := Work{"Destiny's Gromulet", "mango safari", "2022", "https://f4.bcbits.com/img/a3203506842_16.jpg"}
+	momotaro := Work{"Momotaro", "mango safari", "2018", "https://f4.bcbits.com/img/a0956356550_16.jpg"}
+
+	mango_works := []Work{gromulet, momotaro}
+	mango_band := Artist{3, "mango safari", "/assets/artists/mango artist.jpg", mango_works, "Mango Safari is a two piece band from Philadelphia PA. The duo, Ryan Keating and Grant Cheung, started playing Beatles covers together in middle school."}
+
+	// h2ohno
+	fuckaround := Work{"fuck around and find out", "H2OhNo!", "2022", "https://f4.bcbits.com/img/a2613250794_16.jpg"}
+
+	h2o_works := []Work{fuckaround}
+	h2o_band := Artist{4, "H2OhNo!", "/assets/artists/h2o artist.jpg", h2o_works, "Alchemized from the State College diy punk scene, H₂O No! members Brody McElwain and Sean Theoclitus offer an explosive, noisy sound as a bass+drum duo. Their energetic live performances are driven by angsty lyrics directed at elitist white fucks who abuse their authority at the expense of the working class. H₂O No! also enjoys character portraits that are reflective of their own insecurities."}
+
+	artists = append(artists, leg_band, twb_band, mango_band, h2o_band)
 
 	return artists
+}
+
+// get all works
+func get_works() []Work {
+	works := []Work{}
+
+	// get all artists
+	artists := get_artists()
+
+	// now for all artists, get all works
+	// just for demo purposes...
+	for i, s := range artists {
+
+		println(i)
+		artist_works := s.Works
+
+		for x, y := range artist_works {
+			println(x)
+			works = append(works, y)
+		}
+	}
+
+	return works
 }
 
 func all_artists(c *gin.Context) {
@@ -90,24 +120,4 @@ func main() {
 	router.GET("/artists/", all_artists)
 	router.GET("/artists/:id/", artist)
 	router.Run("localhost:8080")
-}
-
-// old
-func home(c *gin.Context) {
-
-	// generate a list of works
-
-	goblinrock2 := Work{"Goblin Rock II", "the willard building", "2022", "https://f4.bcbits.com/img/a1430038869_16.jpg"}
-	gromulet := Work{"Destiny's Gromulet", "mango safari", "2022", "https://f4.bcbits.com/img/a3203506842_16.jpg"}
-	fuckaround := Work{"fuck around and find out", "H2OhNo!", "2022", "https://f4.bcbits.com/img/a2613250794_16.jpg"}
-
-	works := []Work{goblinrock2, gromulet}
-
-	// works = append(works, Work{"LEG 3", "LEG", "2022", ""})
-	works = append(works, fuckaround)
-
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"work_test": works,
-	})
-
 }
