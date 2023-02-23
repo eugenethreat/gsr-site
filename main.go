@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -120,5 +121,16 @@ func main() {
 	router.GET("/artists/", all_artists)
 	router.GET("/artists/:id/", artist)
 	// router.Run("localhost:8080")
-	router.Run("localhost:80")
+
+	// infra
+	port := os.Getenv("PORT")
+	url := ""
+
+	if port == "" {
+		// local
+		port = "8080"
+		url = "localhost"
+	}
+
+	router.Run(url + ":" + port)
 }
