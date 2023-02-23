@@ -1,0 +1,27 @@
+{{ define "works" }}
+<div id="works" style="background-size: cover; background-repeat: no-repeat; background-image:url('/assets/grey2.png')">
+
+    <div id="sumtext" class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <h1 style="padding: 1rem 0rem;" class="underline text-7xl">Goodstone Records</h1>
+        <h2 style="padding: 0rem 0rem;" class="text-5xl">phl / sc / beyond</h2>
+
+        <br>
+
+        <div id="works-list" class="grid lg:grid-cols-3 md:grid-cols-2 gap-24" style="margin: 2rem 0rem;">
+
+            <!-- element - make this a component -->
+            {{ range .work_test}}
+            <div>
+                <img src="{{.Art}}" alt="">
+                <p class="underline text-2xl">{{.Name}}</p>
+                <p class="underline text-xl">{{.Personnel}}</p>
+                <p class="underline text-xl"> {{.Release_date}} </p>
+            </div>
+            {{ end }}
+
+        </div>
+
+    </div>
+
+</div>
+{{ end }}

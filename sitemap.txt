@@ -1,0 +1,48 @@
+/ home 
+
+/ services 
+// recording 
+// mixing/mastering 
+// merch - shirts, cassettes 
+ 
+/ works (musak) 
+// works 
+type Work struct {
+	Name         string //work name
+	Personnel    string //performers
+	Release_date string //release year
+	Art          string //url to art
+}
+
+
+/ roster (artists) 
+type Artist Struct {
+	Name 	    string //this one is obvious 
+	Image       string // url to image(s)
+	Works       [x]Works //array of Work structs
+	Description string //short blurb about them 
+}
+
+/ contact 
+// contact form 
+
+/ todo
+// merch store 
+// backend func for adding new content 
+// blog 
+
+
+template pattern 
+
+    template file 
+
+    {{ define "templatename"}}
+        <content>
+    {{ end }}
+
+    ---- 
+
+    file using template
+
+    {{ template "$templatename"}}
+

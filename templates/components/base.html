@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <title>Home | Goodstone Records</title>
+    <link rel="icon"
+        href="https://static.wixstatic.com/media/6dbe02_1ee3a4920e5d4325bf268373a32279dc~mv2.png/v1/fill/w_304,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/goodstone%20records%20orange.png">
+</head>
+
+<style>
+    body {
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    {{ template "navbar" }}
+
+    {{ template "banner" }}
+
+    <!-- magic... -->
+    {{ template "works" . }}
+
+</body>
+
+</html>
