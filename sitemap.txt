@@ -23,6 +23,8 @@ type Artist Struct {
 	Description string //short blurb about them 
 }
 
+//todo - use spotify api to get info! 
+
 / contact 
 // contact form 
 
