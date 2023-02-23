@@ -46,7 +46,7 @@
         <div class="grid grid-cols-2 gap-8" id="artist-card">
 
             <div class="flex justify-around">
-                <img class="justify-content-end" style="margin: 2rem; " src="{{ .artist.Image }}" alt="">
+                <img class="justify-content-end" style="margin: 2rem; min-width: 100%;" src="{{ .artist.Image }}" alt="">
 
             </div>
 
@@ -64,9 +64,9 @@
 
                     <div class="flex justify-between">
                         {{ range .artist.Works }}
-                        <div style="display: inline; margin-right: 1rem;">
-                            <img src="{{.Art}}" alt="">
-                            <p class="underline text-2xl">{{.Name}}</p>
+                        <div style="display: inline; margin-right: 1rem; max-width: 100%;">
+                            <img style="max-width: 150px;" src="{{.Art}}" alt="">
+                            <p style="overflow: hidden; text-overflow: ellipsis" class="underline text-2xl">{{.Name}}</p>
                             <p class="underline text-xl">{{.Personnel}}</p>
                             <p class="underline text-xl"> {{.Release_date}} </p>
                         </div>
