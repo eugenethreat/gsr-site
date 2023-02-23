@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <title>Home | Goodstone Records</title>
+    <link rel="icon"
+        href="https://static.wixstatic.com/media/6dbe02_1ee3a4920e5d4325bf268373a32279dc~mv2.png/v1/fill/w_304,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/goodstone%20records%20orange.png">
+</head>
+
+<style>
+    body {
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    {{ template "navbar" }}
+
+    {{ template "banner" }}
+
+    <!-- {{ .artist }} -->
+
+    <div class="mt-2 grid grid-cols-2" id="top">
+
+        <div class="flex justify-around">
+            <p class="underline text-2xl" style="font-size: xx-large;"> roster / {{.artist.Name }}</p>
+        </div>
+
+        <div>
+
+        </div>
+
+    </div>
+
+
+    <div class="grid grid-cols-2" id="artist-card">
+
+        <div class="flex justify-around">
+            <img class="justify-content-end" style="margin: 2rem; max-width: 70%;" src="{{ .artist.Image }}" alt="">
+
+        </div>
+
+        <div id="works" class="grid grid-rows-2">
+            <div style="margin-top: 2rem;">
+                <p class="underline text-2xl" style="font-size: xx-large;"> {{.artist.Name }}</p>
+
+                <p>{{.artist.Description}}</p>
+            </div>
+
+            <div>
+                <p class="underline text-2xl" style="font-size: xx-large;"> Works</p>
+
+                <br>
+                
+                <div class="flex">
+                    {{ range .artist.Works }}
+                    <div style="display: inline;">
+                        <img src="{{.Art}}" alt="">
+                        <p class="underline text-2xl">{{.Name}}</p>
+                        <p class="underline text-xl">{{.Personnel}}</p>
+                        <p class="underline text-xl"> {{.Release_date}} </p>
+                    </div>
+                    {{ end }}
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
