@@ -1,21 +1,52 @@
 {{ define "works" }}
 <div id="works" style="background-size: cover; background-repeat: no-repeat; background-image:url('/assets/grey2.png')">
 
+    <style>
+        @media (max-width: 400px) {
+
+            /* for small screens - go small */
+            #works-list {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                gap: 0px;
+                margin-top: 0px !important;
+            }
+
+            .work-text {
+                display: none;
+            }
+
+            #top-gsr {
+                font-size: x-large;
+            }
+
+            #subtitle-gsr {
+                font-size: large;
+            }
+
+        }
+    </style>
+
     <div id="sumtext" class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <h1 style="padding: 1rem 0rem;" class="underline text-7xl">Goodstone Records</h1>
-        <h2 style="padding: 0rem 0rem;" class="text-5xl">phl / sc / beyond</h2>
+        <h1 id="top-gsr" style="padding: 1rem 0rem;" class="underline lg:text-7xl md:text-5xl base:text-3xl">Goodstone
+            Records</h1>
+        <h2 id="subtitle-gsr" style="padding: 0rem 0rem;" class="lgtext-5xl md:text-3xl sm:text-md">phl / sc / beyond
+        </h2>
 
         <br>
 
-        <div id="works-list" class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-24" style="margin: 2rem 0rem;">
+        <div id="works-list" class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-24"
+            style="margin: 2rem 0rem;">
 
             <!-- element - make this a component -->
             {{ range .work_test}}
             <div>
-                <img style="min-width: 100%; object-fit: cover;" src="{{.Art}}" alt="">
-                <p class="underline text-2xl">{{.Name}}</p>
-                <p class="underline text-xl">{{.Personnel}}</p>
-                <p class="underline text-xl"> {{.Release_date}} </p>
+                <a href="/artists/"><img style="min-width: 100%; object-fit: cover;" src="{{.Art}}" alt=""></a>
+                <div class="work-text">
+                    <p class="underline text-2xl">{{.Name}}</p>
+                    <p class="underline text-xl">{{.Personnel}}</p>
+                    <p class="underline text-xl"> {{.Release_date}} </p>
+                </div>
             </div>
             {{ end }}
 

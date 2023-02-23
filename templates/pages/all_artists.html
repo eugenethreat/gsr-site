@@ -26,6 +26,23 @@
 
     {{ template "banner" }}
 
+    <style>
+        @media (max-width: 400px) {
+            /* for small screens - go small */
+            #artist-list {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                gap: 0px;
+            }
+            .artist-text{
+                display: none;
+            }
+
+            
+        }
+    </style>
+
+
     <div class="mt-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 
         <div class="mt-2 mb-8 grid grid-cols-2" id="top">
@@ -39,7 +56,7 @@
             </div>
         </div>
 
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-24">
+        <div id="artist-list" class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-24">
 
             {{ range .artists }}
 
@@ -47,7 +64,7 @@
                 <div>
                     <a href="{{.Id}}"> <img class="justify-content-end" style="object-fit: cover; min-height: 100%; min-width: 100%;" src="{{ .Image }}"
                             alt=""></a>
-                    <p class="text-2xl">{{ .Name}}</p>
+                    <p class="artist-text text-2xl">{{ .Name}}</p>
                 </div>
             </div>
 
