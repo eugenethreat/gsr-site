@@ -120,5 +120,5 @@ func main() {
 	router.GET("/artists/", all_artists)
 	router.GET("/artists/:id/", artist)
 	// router.Run("localhost:8080")
-	router.Run("localhost:80")
+	// router.Run("localhost:80")
 }
