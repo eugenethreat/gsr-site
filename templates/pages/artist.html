@@ -26,11 +26,9 @@
 
     {{ template "banner" }}
 
-    <!-- {{ .artist }} -->
+    <div class="mt-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-
-        <div class="mt-2 grid grid-cols-2" id="top">
+        <div class="mt-2 grid grid-cols-2" id="top" style="margin-bottom: 2rem;">
 
             <div class="flex justify-start">
                 <p class="underline text-2xl" style="font-size: xx-large;"> <a href="/artists/">roster</a> / {{.artist.Name }}</p>
@@ -46,7 +44,7 @@
         <div class="grid grid-cols-2 gap-8" id="artist-card">
 
             <div class="flex justify-around">
-                <img class="justify-content-end" style="margin: 2rem; min-width: 100%;" src="{{ .artist.Image }}" alt="">
+                <img class="justify-content-end" style="min-width: 100%;" src="{{ .artist.Image }}" alt="">
 
             </div>
 

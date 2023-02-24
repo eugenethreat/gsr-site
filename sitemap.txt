@@ -1,3 +1,7 @@
+todos 
+// layout changes - mobile 
+// better background 
+
 / home 
 
 / services 

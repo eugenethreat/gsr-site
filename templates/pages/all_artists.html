@@ -28,32 +28,35 @@
 
     <style>
         @media (max-width: 400px) {
+
             /* for small screens - go small */
             #artist-list {
                 display: grid;
                 grid-template-columns: 50% 50%;
                 gap: 0px;
             }
-            .artist-text{
+
+            .artist-text {
                 display: none;
             }
 
-            
+
         }
     </style>
 
 
     <div class="mt-8 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 
-        <div class="mt-2 mb-8 grid grid-cols-2" id="top">
-            <div class="">
-                <p class="underline text-2xl" style="font-size: xx-large;"> roster </p>
-                <p>State College's finest.</p>
+        <div class="mt-2 grid grid-cols-2" id="top" style="margin-bottom: 2rem;">
+
+            <div class="flex justify-start">
+                <p class="underline text-2xl" style="font-size: xx-large;"> <a href="/artists/">roster</a> / all</p>
             </div>
 
             <div>
-                <!-- empty :) -->
+                <!-- empty -->
             </div>
+
         </div>
 
         <div id="artist-list" class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-24">
@@ -62,8 +65,9 @@
 
             <div class="flex justify-around">
                 <div>
-                    <a href="{{.Id}}"> <img class="justify-content-end" style="object-fit: cover; min-height: 100%; min-width: 100%;" src="{{ .Image }}"
-                            alt=""></a>
+                    <a href="{{.Id}}"> <img class="justify-content-end"
+                            style="object-fit: cover; min-height: 100%; max-width: 100%;" src="{{ .Image }}" alt=""></a>
+                    <br>
                     <p class="artist-text text-2xl">{{ .Name}}</p>
                 </div>
             </div>
