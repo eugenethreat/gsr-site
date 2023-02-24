@@ -31,7 +31,8 @@
         <div class="mt-2 grid grid-cols-2" id="top" style="margin-bottom: 2rem;">
 
             <div class="flex justify-start">
-                <p class="underline text-2xl" style="font-size: xx-large;"> <a href="/artists/">roster</a> / {{.artist.Name }}</p>
+                <p class="underline text-2xl" style="font-size: xx-large;"> <a href="/artists/">roster</a> /
+                    {{.artist.Name }}</p>
             </div>
 
             <div>
@@ -41,7 +42,8 @@
         </div>
 
 
-        <div class="grid grid-cols-2 gap-8" id="artist-card">
+
+        <div class="grid md:grid-cols-2 gap-8" id="artist-card">
 
             <div class="flex justify-around">
                 <img class="justify-content-end" style="min-width: 100%;" src="{{ .artist.Image }}" alt="">
@@ -64,7 +66,8 @@
                         {{ range .artist.Works }}
                         <div style="display: inline; margin-right: 1rem; max-width: 100%;">
                             <img style="max-width: 150px;" src="{{.Art}}" alt="">
-                            <p style="overflow: hidden; text-overflow: ellipsis" class="underline text-2xl">{{.Name}}</p>
+                            <p style="overflow: hidden; text-overflow: ellipsis" class="underline text-2xl">{{.Name}}
+                            </p>
                             <p class="underline text-xl">{{.Personnel}}</p>
                             <p class="underline text-xl"> {{.Release_date}} </p>
                         </div>
